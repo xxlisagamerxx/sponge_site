@@ -14,5 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('posts');
 });
+
+Route::get('post', function () {
+    return view('post',[
+    'post' => '<h1> hi its me spongebob! </h1>'
+    ]);
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
