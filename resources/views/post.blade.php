@@ -6,7 +6,7 @@
 <body>
 
 <h1>Supp</h1>
-
+<?= $post; ?>
 
 
 

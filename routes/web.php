@@ -17,11 +17,26 @@ Route::get('/', function () {
     return view('posts');
 });
 
-Route::get('post', function () {
+Route::get('posts/{post}', function ($slug) {
+    // find a post by its slug and pass it to a view called "post"
+    $post = Post::find($slug);
+
     return view('post',[
-    'post' => '<h1> hi its me spongebob! </h1>'
+        'post' => $post
     ]);
-});
+
+
+    //if (!file_exists($path = __DIR__ . "/../resources/posts/{$slug}.html")) {
+        //return redirect('/');
+    //}
+
+    //$post = cache()->remember("posts.{$slug}", now()->addMinutes(20), fn() => file_get_contents($path));
+
+
+    //return view('post', ['post' => $post]);
+
+})->where('post', '[A-z_\-]+');
+//can only access files with letters capital and small letters and with _ -
 
 Auth::routes();
 

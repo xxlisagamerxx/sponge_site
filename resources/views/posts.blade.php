@@ -11,6 +11,13 @@ hi
     <source src="https://video.twimg.com/tweet_video/FeAVU_JWAAIsI58.mp4" type="video/mp4">
 </video>
 
-<a href="post">Sponge greet</a>
+<br>
+<a href="/posts/my-first-post">Sponge greet</a>
+<br>
+<br>
+<a href="/posts/my-second-post">Patrick post!</a>
+<br>
+<br>
+<a href="/posts/my-third-post">Spongebob post!</a>
 
 </body>
