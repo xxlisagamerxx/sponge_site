@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,29 +15,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('posts');
+    return view('intro', [
+        ]);
 });
 
-Route::get('posts/{post}', function ($slug) {
-    // find a post by its slug and pass it to a view called "post"
-    $post = Post::find($slug);
-
-    return view('post',[
-        'post' => $post
+Route::get('posts' , function () {
+    return view('posts', [
     ]);
+});
 
 
-    //if (!file_exists($path = __DIR__ . "/../resources/posts/{$slug}.html")) {
-        //return redirect('/');
-    //}
+Auth::routes();
 
-    //$post = cache()->remember("posts.{$slug}", now()->addMinutes(20), fn() => file_get_contents($path));
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Auth::routes();
 
-    //return view('post', ['post' => $post]);
-
-})->where('post', '[A-z_\-]+');
-//can only access files with letters capital and small letters and with _ -
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
