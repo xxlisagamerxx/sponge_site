@@ -24,15 +24,19 @@ Route::get('posts' , function () {
     ]);
 });
 
+// USER DASHBOARD
+Route::get('/home', function () {
+    return view('home');
+})->middleware(['auth', 'user'])->name('home');
+
+// ADMIN DASHBOARD
+Route::get('/admin_home', function () {
+    return view('admin_home');
+})->middleware(['auth', 'admin'])->name('admin_home');
+
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
