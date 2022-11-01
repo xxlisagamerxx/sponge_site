@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 /*
@@ -34,9 +35,13 @@ Route::get('/admin_home', function () {
     return view('admin_home');
 })->middleware(['auth', 'admin'])->name('admin_home');
 
+    Route::get('/products', function () {
+        return view('products.index');
+})->middleware(['auth', 'admin'])->name('products');
+
+Auth::routes();
 
 Route::resource('products', ProductController::class);
-Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

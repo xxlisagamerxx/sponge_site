@@ -21,13 +21,13 @@ class UserAuthenticated
             /** @var User $user */
             $user = Auth::user();
 
-            // if user is not admin take him to his dashboard
+            // if user is admin take him to his dashboard
             if ( $user->role == 'admin' ) {
                 return $next($request);
                 //return redirect(route('admin_home'));
             }
 
-            // allow admin to proceed with request
+            // allow user to proceed with request
             else if ( $user->role == 'user') {
                 return $next($request);
             }

@@ -1,13 +1,14 @@
 @extends('products.layout')
 
 @section('content')
+
     <div class="row">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Laravel 8 CRUD Example from scratch - ItSolutionStuff.com</h2>
+                <h2>Spongebob Post maker 3000</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Product</a>
+                <a class="btn btn-success" href="{{ route('products.create') }}"> Create New Post</a>
             </div>
         </div>
     </div>
@@ -22,14 +23,14 @@
         <tr>
             <th>No</th>
             <th>Name</th>
-            <th>Details</th>
+            <th>Picture</th>
             <th width="280px">Action</th>
         </tr>
         @foreach ($products as $product)
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $product->name }}</td>
-                <td><img src="{{ $product->detail }}"></td>
+                <td><img src="{{ $product->detail }}"style="width:auto;height:200px;"></td>
                 <td>
                     <form action="{{ route('products.destroy',$product->id) }}" method="POST">
 

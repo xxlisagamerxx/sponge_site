@@ -13,7 +13,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-
+                            <a href="/products" class="button">View all posts</a>
                         {{ __('You are logged in as Admin') }}
                     </div>
                 </div>
